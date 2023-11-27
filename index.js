@@ -88,19 +88,19 @@ const promptUser = () => {
 };
 
 function writeToFile(data) {
-  let svg = "";
-  if (data.shape === "Circle") {
-    selectedShape = new Circle(data.color, data.text, data.textColor, data.radius);
-  } else if (data.shape === "Square") {
-    selectedShape = new Square(data.color, data.text, data.textColor, data.length);
-  } else if (data.shape === "Triangle") {
-    selectedShape = new Triangle(data.color, data.text, data.textColor, data.side1, data.side2, data.side3);
-  }
-  svg = selectedShape.render();
-  svg += `<text x="50%" y="50%" fill="${data.textColor}">${data.text}</text>`;
-
-  return svg;
-}
+    let svg = "";
+    if (data.shape === "Circle") {
+      selectedShape = new Circle(data.color, data.text, data.textColor, data.radius);
+    } else if (data.shape === "Square") {
+      selectedShape = new Square(data.color, data.text, data.textColor, data.length);
+    } else if (data.shape === "Triangle") {
+      selectedShape = new Triangle(data.color, data.text, data.textColor, data.side1, data.side2, data.side3);
+    }
+    svg = selectedShape.render();
+    svg += `<text x="50%" y="50%" fill="${data.textColor}">${data.text}</text>`;
+    svg = `<svg viewBox="0 0 100 100">${svg}</svg>`;
+    return svg;
+   }
 
 function init() {
   promptUser()
