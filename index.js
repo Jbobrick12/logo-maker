@@ -97,7 +97,7 @@ function writeToFile(data) {
       selectedShape = new Triangle(data.color, data.text, data.textColor, data.side1, data.side2, data.side3);
     }
     svg = selectedShape.render();
-    svg += `<text x="75%" y="75%" fill="${data.textColor}">${data.text}</text>`;
+    svg += `<text x="50%" y="50%" fill="${data.textColor}" font-size="30px">${data.text}</text>`;
     svg = `<svg viewBox="0 0 100 100">${svg}</svg>`;
     return svg;
    }
