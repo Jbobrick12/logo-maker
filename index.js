@@ -54,17 +54,47 @@ const promptUser = () => {
         "white",
       ],
     },
+    {
+        type: "input",
+        name: "radius",
+        message: "What is the radius of the circle?",
+        when: (answers) => answers.shape === "Circle",
+        },
+        {
+        type: "input",
+        name: "length",
+        message: "What is the length of the square?",
+        when: (answers) => answers.shape === "Square",
+        },
+        {
+        type: "input",
+        name: "side1",
+        message: "What is the length of side 1 of the triangle?",
+        when: (answers) => answers.shape === "Triangle",
+        },
+        {
+        type: "input",
+        name: "side2",
+        message: "What is the length of side 2 of the triangle?",
+        when: (answers) => answers.shape === "Triangle",
+        },
+        {
+        type: "input",
+        name: "side3",
+        message: "What is the length of side 3 of the triangle?",
+        when: (answers) => answers.shape === "Triangle",
+    }
   ]);
 };
 
 function writeToFile(data) {
   let svg = "";
   if (data.shape === "Circle") {
-    selectedShape = new Circle(data.color, data.text, data.textColor);
+    selectedShape = new Circle(data.color, data.text, data.textColor, data.radius);
   } else if (data.shape === "Square") {
-    selectedShape = new Square(data.color, data.text, data.textColor);
+    selectedShape = new Square(data.color, data.text, data.textColor, data.length);
   } else if (data.shape === "Triangle") {
-    selectedShape = new Triangle(data.color, data.text, data.textColor);
+    selectedShape = new Triangle(data.color, data.text, data.textColor, data.side1, data.side2, data.side3);
   }
   svg = selectedShape.render();
 
